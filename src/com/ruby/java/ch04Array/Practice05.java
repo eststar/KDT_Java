@@ -1,7 +1,7 @@
 package com.ruby.java.ch04Array;
 
+import java.util.Arrays;
 import java.util.Random;
-
 /*
  * 2차원 배열과 행렬 연산
  * 
@@ -49,6 +49,7 @@ public class Practice05 {
 		int[][] table_B = new int[3][5];
 		int[][] table_C = new int[3][5];
 
+		// 1., 2., 3.
 		for (int i = 0; i < table_A.length; i++) {
 			for (int j = 0; j < table_A[i].length; j++) {
 				table_A[i][j] = rd.nextInt(100);
@@ -56,60 +57,45 @@ public class Practice05 {
 				table_C[i][j] = table_A[i][j] + table_B[i][j];
 			}
 		}
-		System.out.println("A");
-
-		for (int i = 0; i < table_A.length; i++) {
-			for (int j = 0; j < table_A[i].length; j++) {
-				System.out.print(table_A[i][j] + "\t");
-			}
-			System.out.println();
-		}
-
-		System.out.println("B");
-
-		for (int i = 0; i < table_B.length; i++) {
-			for (int j = 0; j < table_B[i].length; j++) {
-				System.out.print(table_B[i][j] + "\t");
-			}
-			System.out.println();
-		}
-
-		System.out.println("C");
-
-		for (int i = 0; i < table_C.length; i++) {
-			for (int j = 0; j < table_C[i].length; j++) {
-				System.out.print(table_C[i][j] + "\t");
-			}
-			System.out.println();
-		}
-
-		System.out.println("D");
-
+		
+		//4.
 		int[][] table_D = new int[5][4];
 
 		for (int i = 0; i < table_D.length; i++) {
 			for (int j = 0; j < table_D[i].length; j++) {
-				table_D[i][j] = rd.nextInt(101);
-				System.out.print(table_D[i][j] + "\t");
+				table_D[i][j] = rd.nextInt(100);
 			}
-			System.out.println();
 		}
-
-		System.out.println("E");
+		
+		//5. E = A x D
 
 		int[][] table_E = new int[3][4];
 
-		for (int i = 0; i < table_E.length; i++) {
-			for (int j = 0; j < table_E[i].length; j++) {
-				for (int k = 0; k < table_A[i].length; k++) {
+		for (int i = 0; i < table_A.length; i++) {
+			for (int j = 0; j < table_D[0].length; j++) {
+				for (int k = 0; k < table_A[0].length; k++) {
 					table_E[i][j] += (table_A[i][k] * table_D[k][j]);
 				}
-				System.out.print(table_E[i][j] + "\t");
 			}
-			System.out.println();
 		}
 
-		System.out.println("end");
+		printMatrix(table_A, "A");
+		printMatrix(table_B, "B");
+		printMatrix(table_C, "C");
+		printMatrix(table_D, "D");
+		printMatrix(table_E, "E");
+		
+		System.out.println("end");		
+	}
+
+	private static void printMatrix(int[][] arr, String string) {
+		// TODO Auto-generated method stub
+		System.out.println(string);
+		
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(Arrays.toString(arr[i]));
+		}
+		System.out.println();
 	}
 
 }

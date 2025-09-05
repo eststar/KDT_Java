@@ -14,50 +14,43 @@ import java.util.Random;
  *   최대값 = **
  *   최소값, 평균값 출력은 최대값 출력과 같다.
  *   
-
-
  */
 public class Practice04 {
 	public static void main(String[] args) {
 		Random rd = new Random();
 		
-		int[] arr = new int[10];
+		int[] price = new int[10];
 				
-		for(int i = 0; i < arr.length; i++)
+		for(int i = 0; i < price.length; i++)
 		{
-			arr[i] = rd.nextInt(101);
+			price[i] = rd.nextInt(101);
 		}
 		
-		int max = arr[0];
-		int min = arr[0];
+		int max = price[0];
+		int min = price[0];
 		double avg = 0.0;
 		int sum = 0;
-		int cnt = 0;
 		
-		for(int num : arr)
+		int cnt = 0;
+		for(int num : price)
 		{
 			if(cnt == 0)
 				System.out.print("[" + num + ",");
-			else if(cnt == (arr.length - 1))
-				System.out.print(num + "]");
+			else if(cnt == (price.length - 1))
+				System.out.println(num + "]");
 			else
 				System.out.print(num + ",");
 			cnt++;
 			
 			sum += num;
-			if(max < num)
-				max = num;
-			if(min > num)
-				min = num;
+			if(max < num)	max = num;
+			if(min > num)	min = num;
 		}
 		
-		avg = (double)sum / arr.length;
+		avg = (double)sum / price.length;
 		
-		System.out.println();
-		System.out.println(avg);
-		System.out.println(max);
-		System.out.println(min);
-		
+		System.out.println("평균: " + avg);
+		System.out.println("최대: " + max);
+		System.out.println("최소: " + min);
 	}
-
 }

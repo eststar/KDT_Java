@@ -19,10 +19,10 @@ public class Practice03 {
 		char[] score = new char[10];
 		double avg = 0.0;
 		
-		
+		//랜덤으로 정수 및 학점 입력
 		for(int i = 0; i < scorenum.length;i++)
 		{
-			scorenum[i] = rd.nextInt(100);
+			scorenum[i] = rd.nextInt(101);
 			avg += scorenum[i];
 			
 			if(scorenum[i] >= 90)
@@ -39,6 +39,7 @@ public class Practice03 {
 		
 		avg /= scorenum.length;
 		
+		//입력 점수 및 학점 출력
 		for(int i = 0; i < scorenum.length;i++)
 		{
 			System.out.println(scorenum[i] +" - "+ score[i] +" 학점");
