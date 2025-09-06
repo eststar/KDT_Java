@@ -1,5 +1,5 @@
 package edu;
-//git ignore change Test
+//git cache clear 
 public class Test01 {
 	public static void main(String[] args) {
 		System.out.println("Hello");
