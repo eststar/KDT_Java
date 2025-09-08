@@ -43,13 +43,16 @@ import java.util.Random;
  */
 public class Practice05 {
 	public static void main(String[] args) {
+		//랜덤 입력 위한 객체 생성
 		Random rd = new Random();
 
+		// 3x5 행렬 표현 위한 2차원 배열 선언
 		int[][] table_A = new int[3][5];
 		int[][] table_B = new int[3][5];
 		int[][] table_C = new int[3][5];
 
 		// 1., 2., 3.
+		// 배열에 0~100(100은 제외) 사이의 정수 입력 및 배열 덧셈
 		for (int i = 0; i < table_A.length; i++) {
 			for (int j = 0; j < table_A[i].length; j++) {
 				table_A[i][j] = rd.nextInt(100);
@@ -59,6 +62,7 @@ public class Practice05 {
 		}
 		
 		//4.
+		//5x4 배열 생성 및 랜덤 값 입력
 		int[][] table_D = new int[5][4];
 
 		for (int i = 0; i < table_D.length; i++) {
@@ -88,6 +92,7 @@ public class Practice05 {
 		System.out.println("end");		
 	}
 
+	//배열 출력 함수
 	private static void printMatrix(int[][] arr, String string) {
 		// TODO Auto-generated method stub
 		System.out.println(string);

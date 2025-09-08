@@ -17,8 +17,10 @@ import java.util.Random;
  */
 public class Practice04 {
 	public static void main(String[] args) {
+		//랜덤 입력용 객체 생성
 		Random rd = new Random();
 		
+		//배열 생성
 		int[] price = new int[10];
 				
 		for(int i = 0; i < price.length; i++)
@@ -26,6 +28,7 @@ public class Practice04 {
 			price[i] = rd.nextInt(101);
 		}
 		
+		//최대값 최소값 평균
 		int max = price[0];
 		int min = price[0];
 		double avg = 0.0;

@@ -25,6 +25,7 @@ public class 실습_2_4조건문논리연산 {
 		isBusan = ((n > 20 && n < 30) && (st.equals("부산")));
 
 		System.out.println("나이 = " + n + ", 도시 = " + st + ", 부산청년여부 = " + isBusan);
+		sc.close();
 
 		// 불리언 변수 선언 및 초기화
 

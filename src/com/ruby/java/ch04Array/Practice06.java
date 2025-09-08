@@ -1,9 +1,13 @@
 package com.ruby.java.ch04Array;
 
+//두개의 배열을 합치되 합친 배열에서 두 배열의 요소가 번갈아 나오도록 구현
+// [a1, a2, a3] [b1, b2, b3] [a1, b1, a2, b2, a3, b3]
+
 import java.util.Arrays;
 import java.util.Random;
 
 public class Practice06 {
+	//배열을 인자로 받아 요소를 출력
 	public static void showArray(int[] arr)
 	{
 		System.out.print("[");
@@ -38,6 +42,7 @@ public class Practice06 {
 			arrayC[(i*2)+1] = arrayB[i];
 		}
 		
+		//Arrays.toString(배열) 로 배열을 문자열 형태로 반환
 		System.out.println("A"+Arrays.toString(arrayA));
 		System.out.println("B"+Arrays.toString(arrayB));
 		System.out.println("C"+Arrays.toString(arrayC));

@@ -29,6 +29,7 @@ public class MinBullCount {
 		count_k = bill / 1000;
 		
 		System.out.println("5만원 : " + count_50k + "\n1만원 : " + count_10k +"\n5천원 : " + count_5k +"\n천원 : " + count_k);
+		sc.close();
 	}
 
 }

@@ -21,8 +21,8 @@ public class Test18 {
 
 	public int sum(int a, int b) {
 
-		int salary = 0;
-		salary += 10;
+//		int salary = 0;
+//		salary += 10;
 		System.out.println();
 		//
 		return a + b;

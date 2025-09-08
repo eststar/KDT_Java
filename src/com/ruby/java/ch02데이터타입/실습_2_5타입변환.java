@@ -41,6 +41,7 @@ public class 실습_2_5타입변환 {
 		int numCastingInt = (int) numDouble;
 		
 		System.out.println("실수변수값 = " + numDouble + ", 정수변수값 = " + numCastingInt);
+		sc1.close();
 
 	}
 
