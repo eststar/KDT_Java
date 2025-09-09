@@ -1,4 +1,4 @@
-package com.ruby.java.ch04Array;
+package com.ruby.java.ch04array;
 
 import java.util.Arrays;
 import java.util.Random;

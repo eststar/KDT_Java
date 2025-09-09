@@ -1,4 +1,4 @@
-package com.ruby.java.ch06객체구현;
+package edu.my.practice.ch06;
 
 
 public class PracticeStaticMethod_6_3 {

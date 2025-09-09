@@ -1,4 +1,4 @@
-package com.ruby.java.ch04Array;
+package com.ruby.java.ch04array;
 
 public class Test36 {
 	public static void main(String[] args) {

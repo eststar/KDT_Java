@@ -40,8 +40,9 @@ class Student {
 		return subjects;
 	}
 
+	//배열 복사 주의!
 	public void setSubjects(String[] subjects) {
-		this.subjects = subjects;
+		this.subjects = subjects.clone();
 	}
 
 	public int[] getScores() {
@@ -49,7 +50,7 @@ class Student {
 	}
 
 	public void setScores(int[] scores) {
-		this.scores = scores;
+		this.scores = scores.clone();
 	}
 
 //	public void setCount(int count) {

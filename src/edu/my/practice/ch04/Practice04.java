@@ -1,4 +1,4 @@
-package com.ruby.java.ch04Array;
+package edu.my.practice.ch04;
 
 import java.util.Random;
 

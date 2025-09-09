@@ -18,13 +18,13 @@ class Student {
 	/*name, age, subjects[], scores[], count를 매개변수로 전달받는 생성자 정의
 	 * 
 	 */
-	
+	//배열 복사 주의!
 	public Student(String name, int age, String[] subjects, int[] scores, int count) {
 		
 		this.name = name;
 		this.age = age;
-		this.subjects = subjects;
-		this.scores = scores;
+		this.subjects = subjects.clone();
+		this.scores = scores.clone();
 		this.count = count;
 	}
 
@@ -61,7 +61,7 @@ class Student {
 	}
 
 	public void setSubjects(String[] subjects) {
-		this.subjects = subjects;
+		this.subjects = subjects.clone();
 	}
 
 	public int[] getScores() {
@@ -69,7 +69,7 @@ class Student {
 	}
 
 	public void setScores(int[] scores) {
-		this.scores = scores;
+		this.scores = scores.clone();
 	}
 
 	public int getCount() {

@@ -1,12 +1,13 @@
-package com.ruby.java.ch06객체구현;
+package edu.my.practice.ch06;
 
 //Student 클래스.
 class Student {
-//필드
+// 필드
 	/*
 	 * ("홍길동", 21, subjects, new int[]{85, 90, 78, 88, 92},passFails, -1), name,
-	 * String age, String[] subjects, int[] scores, int[] passFail,int count를
-	 * private으로 선언 count는 배열의 index로 사용?? - 용도 없음 numberStudents를 정적 필드로 선언
+	 * String age, String[] subjects, int[] scores, int[] passFail,int count를 private으로 선언 
+	 * count는 배열의 index로 사용?? - 용도 없음 
+	 * numberStudents를 정적 필드로 선언
 	 */
 	public static int numberStudents;
 
@@ -15,22 +16,21 @@ class Student {
 	private String[] subjects;
 	private int[] scores;
 	private int[] passFail;
-	private int count; // 용도 불명
+	private int count; //용도 불명
 
-//생성자
-
-	// 생성자 오버로딩
-	// 1번용
-	public Student() {
-
+// 생성자
+	
+	//생성자 오버로딩
+	//1번용
+	public Student(){
+		
 	}
-	// 2번용
-	/*
-	 * name, age, subjects[], scores[], count를 매개변수로 전달받는 생성자 정의
+	//2번용
+	/*name, age, subjects[], scores[], count를 매개변수로 전달받는 생성자 정의
 	 * 
 	 */
-
-	// 배열 앝은복사 깊은복사 주의
+	
+	//배열 앝은복사 깊은복사 주의
 	public Student(String name, int age, String[] subjects, int[] scores, int count) {
 
 		this.name = name;
@@ -39,8 +39,8 @@ class Student {
 		this.scores = scores.clone();
 		this.count = count;
 	}
-
-	// 3번용
+	
+	//3번용
 	/*
 	 * name, age, subjects[], scores[], passFail[], count를 매개변수로 전달받는 생성자 정의
 	 * 
@@ -55,21 +55,23 @@ class Student {
 		this.count = count;
 	}
 
-//setter 메소드: setName(String name), setAge(int age), setSubjects(String
-//subjects[]), setScores(int scores[]), setCount(int num)
-
-	// getter setter
-
-	// 학생 수를 반환하는 정적 메소드getNumberStudents(),
-	// 학생 수를 정적 변수 numberStudents에 저장하는 정적 메소드 getNumberStudents()
+// setter 메소드: setName(String name), setAge(int age), setSubjects(String
+// subjects[]), setScores(int scores[]), setCount(int num)
+	
+	
+	//getter setter
+	
+	// 학생 수를 반환하는 정적 메소드getNumberStudents(), 
+	// 학생 수를 정적 변수 numberStudents에 저장하는 정적 메소드 getNumberStudents() 
 	public static void setNumberStudents(int numberStudents) {
 		Student.numberStudents = numberStudents;
 	}
-
+	
 	public static int getNumberStudents() {
 		return numberStudents;
 	}
 
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -90,6 +92,7 @@ class Student {
 		this.count = num;
 	}
 
+	
 	public String getName() {
 		return name;
 	}
@@ -110,11 +113,13 @@ class Student {
 		return count;
 	}
 
-//학생 정보를 출력하는 메소드 (예시용)
+// 학생 정보를 출력하는 메소드 (예시용)
 	/*
-	 * 이름 = **, 나이 = ** 과목1 = **, 점수1 = ** 과목2 = **, 점수2 = ** ... 등으로 출력
+	 * 이름 = **, 나이 = ** 
+	 * 과목1 = **, 점수1 = ** 
+	 * 과목2 = **, 점수2 = ** ... 등으로 출력
 	 */
-	public void printStudent() {
+	public void printStudent() {		
 
 		System.out.println("이름 = " + name + ", 나이 = " + age);
 		for (int i = 0; i < subjects.length; i++) {
@@ -124,12 +129,14 @@ class Student {
 		System.out.println("-".repeat(20));
 	}
 
-//학생 정보를 출력하는 메소드 (예시용)
+// 학생 정보를 출력하는 메소드 (예시용)
 	/*
-	 * 이름 = **, 나이 = ** 과목1 = **, 점수1 = **, 통과여부=pass 과목2 = **, 점수2 = **, 통과여부=fail
+	 * 이름 = **, 나이 = ** 
+	 * 과목1 = **, 점수1 = **, 통과여부=pass 
+	 * 과목2 = **, 점수2 = **, 통과여부=fail
 	 * ... 등으로 출력
 	 */
-	public void printStudentInfo() {
+	public void printStudentInfo() {		
 
 		System.out.println("이름 = " + name + ", 나이 = " + age);
 		for (int i = 0; i < subjects.length; i++) {
@@ -141,7 +148,7 @@ class Student {
 		System.out.println("-".repeat(20));
 	}
 
-//통과 여부 (모든 과목을 통과했는지 확인)
+// 통과 여부 (모든 과목을 통과했는지 확인)
 	public boolean isPassed() {
 		// 주어진 학생이 모든 과목 통여 여부를 반환
 		boolean pF = false;
@@ -153,7 +160,7 @@ class Student {
 		return pF;
 	}
 
-//6.2.2 각 학생의 성적 정보들을 모두 출력하는 정적 메소드
+// 6.2.2 각 학생의 성적 정보들을 모두 출력하는 정적 메소드
 	public static void printAllStudents(Student[] students) {
 		// 학생 이름 + 과목명, 과목 점수 .... + 과목통과여부:pass or fail
 
@@ -162,8 +169,8 @@ class Student {
 		}
 	}
 
-//6.2.2 과목별 최대/최소 점수 및 해당 학생을 출력하는 정적 메소드
-	// 배열 얕은복사 깊은복사 주의
+// 6.2.2 과목별 최대/최소 점수 및 해당 학생을 출력하는 정적 메소드
+	//배열 얕은복사 깊은복사 주의
 	public static void printSubjectStats(Student[] students) {
 		int subjectNum = students[0].getSubjects().length;
 		int[] maxs = new int[subjectNum];
@@ -171,7 +178,7 @@ class Student {
 		String[] maxStudentNames = new String[subjectNum];
 		String[] minStudentNames = new String[subjectNum];
 		String[] subjects = students[0].getSubjects();
-
+		
 		for (int i = 0; i < subjectNum; i++) {
 			maxs[i] = mins[i] = students[0].getScores()[i];
 			maxStudentNames[i] = minStudentNames[i] = students[0].getName();

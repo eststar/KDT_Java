@@ -1,4 +1,4 @@
-package com.ruby.java.ch04Array;
+package com.ruby.java.ch04array;
 
 //1차원 배열 생성 및 초기화
 /*
