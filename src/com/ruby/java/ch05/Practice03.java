@@ -10,9 +10,24 @@ class Person {
 	private String name;
 	private int age;
 	private float weight;
-	private String[] subjects = new String[10];
-	private int[] years = new int[10];
+	private String[] subjects/* = new String[10] */;
+	private int[] years /* = new int[10] */;
 	private int count = 0;
+	
+	//생성자
+	public Person() {
+		super();
+	}
+	
+	public Person(String name, int age, float weight, String[] subjects, int[] years, int count) {
+		this.name = name;
+		this.age = age;
+		this.weight = weight;
+		this.subjects = new String[10];
+		this.years = new int[10];
+		this.count = 0;
+		
+	}
 
 	// 메소드
 	void setter(String name, int age, float weight) {

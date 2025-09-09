@@ -47,6 +47,7 @@ class Box {
 	}
 	
 	public Box(double width, double height, double depth) {
+		super();
 		this.width= width; // 가로
 		this.height =height; // 세로
 		this.depth = depth; // 높이
