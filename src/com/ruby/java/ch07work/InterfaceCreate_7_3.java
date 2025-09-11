@@ -144,15 +144,22 @@ class Order3 extends SeasonalDiscount {
 		return total;
 	}
 
-	private double calculateTotalDiscounted() {
-		double dTotal = 0.0;
-		for (int i = 0; i < count; i++) {
-			if (items[i] == null)
-				break;
-			dTotal += (items[i].getPrice() - getSeasonalDiscountRate()*items[i].getPrice() - customer.getDiscountRate()*items[i].getPrice());
-		}
-//		dTotal = calculateTotal() * (1 - getSeasonalDiscountRate() - customer.getDiscountRate());
-		return dTotal;
+	//예시와 결과가 다른데 정상인지 질문
+	private double calcTotalDiscounted() {
+		// 정가 - 시즌 할인 적용 - 고객 할인 적용 => 할인된 가격 * 수량 > 총 지불 금액
+//		double dTotal = customer.applyDiscount(calculateTotal());
+//		for (int i = 0; i < count; i++) {
+//			if (items[i] == null)
+//				break;
+//			if (customer instanceof PremiumCustomer3)
+//				dTotal -= getSeasonalDiscountRate() * items[i].getPrice()*quantities[i];
+//		}
+//		return dTotal;
+		
+		if (customer instanceof PremiumCustomer3)
+			return calculateTotal() * (1.0 - getSeasonalDiscountRate() - customer.getDiscountRate());
+		else
+			return customer.applyDiscount(calculateTotal());
 	}
 
 	public void printOrderSummary() {
@@ -177,8 +184,8 @@ class Order3 extends SeasonalDiscount {
 		System.out.println("할인율: " + customer.getDiscountRate());
 		System.out.println("할인가격: " + customer.applyDiscount(calculateTotal()));
 		System.out.println("시즌할인율:" + getSeasonalDiscountRate());
-		System.out.println("시즌할인:" + calculateTotalDiscounted());
-		System.out.println("-".repeat(20));
+		System.out.println("시즌할인:" + calcTotalDiscounted());
+		System.out.println("=".repeat(20));
 	}
 }
 
@@ -216,8 +223,9 @@ class RegularCustomer3 extends Customer3 {
 	}
 
 	@Override
+	//무슨 의미 인지 질문. totalAmount도 무슨 의미?
 	double applyDiscount(double totalAmount) {
-		// 일반 고객은 추가 할인 없음
+		// 일반 고객은 추가 할인 없음 
 		return totalAmount * (1 - REGULARDISCOUNT_RATE);
 	}
 
@@ -238,7 +246,7 @@ class PremiumCustomer3 extends Customer3 {
 
 	@Override
 	double applyDiscount(double totalAmount) {
-		return totalAmount * (1 - PREMIUMDISCOUNT_RATE);
+		return totalAmount * (1.0 - PREMIUMDISCOUNT_RATE);
 	}
 
 	@Override

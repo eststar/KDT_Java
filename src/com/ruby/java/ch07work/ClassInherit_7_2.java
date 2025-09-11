@@ -213,11 +213,6 @@ class Order2 {
 		return total;
 	}
 
-	private double calculateDiscountedTotal() {
-
-		return customer.applyDiscount(calculateTotal());
-	}
-
 	public void printOrderSummary() {
 		/*
 		 * 할인된 가격의 합계 출력 할인 금액 합계 출력
@@ -231,7 +226,7 @@ class Order2 {
 					+ quantities[i] + " ==> 가격 : " + items[i].getPrice() * quantities[i]);
 		}
 		System.out.println("총액 : " + calculateTotal()+", 할인율 : " + customer.getDiscountRate() + ", 할인금액: " + (-calculateTotal()*customer.getDiscountRate()) + ",  할인 후 총액: "
-				+ calculateDiscountedTotal());
+				+ customer.applyDiscount(calculateTotal()));
 		System.out.println("-".repeat(20));
 	}
 }
