@@ -27,9 +27,9 @@ public class ArmorTest {
 		st = "hello"; //String literal 은 메소드 영역의 constant pool에 저장
 		st.toString();
 		
-		int result = sum(10, 20);
-		Armor am;// am은 로컬 변수로서 참조변수
-		am = new Armor();  //생성자 호출
+//		int result = sum(10, 20);
+//		Armor am;// am은 로컬 변수로서 참조변수
+//		am = new Armor();  //생성자 호출
 		//아래 코드는 무엇이 문제인가?
 		//사용 위해 로컬 참조 변수에 인스턴스의 메모리 위치 정보를 저장해둬야함
 //		Armor am2 = new Armor();
