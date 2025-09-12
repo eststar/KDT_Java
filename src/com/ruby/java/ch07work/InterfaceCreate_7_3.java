@@ -118,18 +118,23 @@ class Order3 extends SeasonalDiscount {
 			System.out.println("최대 주문 숫자 초과 - 최대 " + N + "개");
 			return;
 		}
-
-		if (items[count] == null) {
-			if (item instanceof Electronics3)
-				items[count] = new Electronics3(item.getName(), item.getPrice(), item.getStockQuantity(),
-						((Electronics3) item).getMadeYear());
-			else if (item instanceof Clothing3)
-				items[count] = new Clothing3(item.getName(), item.getPrice(), item.getStockQuantity(),
-						((Clothing3) item).getSize());
+		
+		if (items[count] == null)
+		{
+			items[count] = item;
 			quantities[count] = quantity;
 			orderDates[count] = date;
 			count++;
 		}
+		/*
+		 * { if (item instanceof Electronics3) items[count] = new
+		 * Electronics3(item.getName(), item.getPrice(), item.getStockQuantity(),
+		 * ((Electronics3) item).getMadeYear()); else if (item instanceof Clothing3)
+		 * items[count] = new Clothing3(item.getName(), item.getPrice(),
+		 * item.getStockQuantity(), ((Clothing3) item).getSize());
+		 * 
+		 * quantities[count] = quantity; orderDates[count] = date; count++; }
+		 */
 
 	}
 
@@ -156,10 +161,12 @@ class Order3 extends SeasonalDiscount {
 //		}
 //		return dTotal;
 		
-		if (customer instanceof PremiumCustomer3)
-			return calculateTotal() * (1.0 - getSeasonalDiscountRate() - customer.getDiscountRate());
-		else
-			return customer.applyDiscount(calculateTotal());
+//		if (customer instanceof PremiumCustomer3)
+//			return calculateTotal() * (1.0 - getSeasonalDiscountRate() - customer.getDiscountRate());
+//		else
+//			return customer.applyDiscount(calculateTotal());
+		
+		return customer.applyDiscount(calculateTotal()) - calculateTotal() * getSeasonalDiscountRate();
 	}
 
 	public void printOrderSummary() {
@@ -225,7 +232,7 @@ class RegularCustomer3 extends Customer3 {
 	@Override
 	//무슨 의미 인지 질문. totalAmount도 무슨 의미?
 	double applyDiscount(double totalAmount) {
-		// 일반 고객은 추가 할인 없음 
+		// 일반 고객은 추가 할인 없음//적용 안함 취소 전부다 적용
 		return totalAmount * (1 - REGULARDISCOUNT_RATE);
 	}
 
@@ -287,8 +294,8 @@ public class InterfaceCreate_7_3 {
 		 * 출력 결과 예시
 		 * 
 		 * 고객명:홍길동 제품명:노트북, 단가:1500.0, 수량:1, 가격:1500.0 제품명:티셔츠, 단가:50.0, 수량:2, 가격:100.0
-		 * 구매총액:1600.0 --------------------------------------------- 할인율:0.03
-		 * 할인가격:1552.0 시즌할인율:0.01 시즌할인:1536.48
+		 * 구매총액:1600.0 --------------------------------------------- 
+		 * 할인율:0.03 할인가격:1552.0 시즌할인율:0.01 시즌할인:1536.48
 		 * ============================================= 고객명:강감찬 제품명:노트북, 단가:1500.0,
 		 * 수량:1, 가격:1500.0 제품명:티셔츠, 단가:50.0, 수량:2, 가격:100.0 구매총액:1600.0
 		 * --------------------------------------------- 할인율:0.1 할인가격:1440.0 시즌할인율:0.01

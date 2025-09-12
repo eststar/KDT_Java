@@ -88,11 +88,18 @@ class Order {
 	// 아이템 추가 메소드
 	public void addItem(Item item, int orderQuantity) {
 		for(int i = 0; i < count; i++) {
-			if(items[i] == null) {
-				items[i] = new Item(item.getName(), item.getPrice(), item.getStockQuantity());
+			
+			if (items[i] == null)
+			{
+				items[i] = item;
 				quantities[i] = orderQuantity;
 				break;
-			}			
+			}
+			
+			/*
+			 * if(items[i] == null) { items[i] = new Item(item.getName(), item.getPrice(),
+			 * item.getStockQuantity()); quantities[i] = orderQuantity; break; }
+			 */	
 		}
 		
 	}

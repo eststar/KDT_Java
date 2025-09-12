@@ -46,15 +46,13 @@ class Taxi extends Car {
 	@Override
 	public void showVehicle() {
 		// TODO Auto-generated method stub
-		System.out.println("Car: vehicleOccupants = " + vehicleOccupants);
+		System.out.println("Taxi: vehicleOccupants = " + vehicleOccupants + ", mileage = " + mileage);
 	}
-	
 
 }
 
 class MotorCycle implements Vehicle{
 	private int price;
-
 	
 	public MotorCycle(int price) {
 		this.price = price;
@@ -63,6 +61,7 @@ class MotorCycle implements Vehicle{
 
 	@Override
 	public void showVehicle() {
+		System.out.println("MotorCycle: price = " + price);
 	}
 }
 
@@ -70,6 +69,7 @@ public class InterfacePoly_8_1 {
 	public static void displayVehicles(Vehicle [] a) {
 		for (Vehicle v : a) {
 			// v의 타입을 실행 시간에 확인하여 해당 클래스의 메소드로 바인딩
+			//동적 바인딩
 			v.showVehicle();
 		}
 	}

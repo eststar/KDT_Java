@@ -190,15 +190,21 @@ class Order2 {
 
 	public void addItem(Item2 item, int quantity) {
 		for (int i = 0; i < itemCount; i++) {
-			if (items[i] == null) {
-				if(item instanceof Electronics)
-					items[i] = new Electronics(item.getName(), item.getPrice(), item.getStockQuantity(), ((Electronics)item).getWarranty());
-				else if(item instanceof Clothing)
-					items[i] = new Clothing(item.getName(), item.getPrice(), item.getStockQuantity(), ((Clothing)item).getSize(), ((Clothing)item).getColor());
+			if (items[i] == null)
+			{
 				items[i] = item;
 				quantities[i] = quantity;
 				break;
 			}
+			/*
+			 * if (items[i] == null) { if(item instanceof Electronics) items[i] = new
+			 * Electronics(item.getName(), item.getPrice(), item.getStockQuantity(),
+			 * ((Electronics)item).getWarranty()); else if(item instanceof Clothing)
+			 * items[i] = new Clothing(item.getName(), item.getPrice(),
+			 * item.getStockQuantity(), ((Clothing)item).getSize(),
+			 * ((Clothing)item).getColor()); items[i] = item; quantities[i] = quantity;
+			 * break; }
+			 */
 		}
 
 	}
